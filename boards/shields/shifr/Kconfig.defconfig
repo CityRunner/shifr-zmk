@@ -1,0 +1,6 @@
+if SHIELD_SHIFR
+
+config ZMK_KEYBOARD_NAME
+    default "Shifr Keyboard"
+
+endif
