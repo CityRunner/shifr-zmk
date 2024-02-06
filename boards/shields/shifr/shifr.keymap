@@ -1,0 +1,31 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+
+//  Colemak
+// |-------------------------------------------------------------------------------|
+// |   q   |   w   |   f   |   p   |   b   |   j   |   l   |   u   |   y   |  ; :  |
+// |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
+// | a-gui | r-alt |s-ctrl |t-shift|   g   |   m   |n-shift|e-ctrl | i-alt | o-gui |
+// |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
+// |   z   |   x   |   c   |   d   |   v   |   k   |   h   |  , <  |  . >  |  / ?  |
+// |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
+// |system | menu  |  tab  |spc-num|esc-sym|ent-fun|bsp-nav|  del  | vol-  | vol+  |
+// |-------------------------------------------------------------------------------|
+
+            bindings = <
+    &kp Q    &kp W    &kp F    &kp P      &kp B    &kp J    &kp L    &kp U      &kp Y      &kp SEMI
+    &kp A    &kp R    &kp S    &kp T      &kp G    &kp M    &kp N    &kp E      &kp I      &kp O
+    &kp Z    &kp X    &kp C    &kp D      &kp V    &kp K    &kp H    &kp COMMA  &kp DOT    &kp BSLH
+    &kp A    &kp A    &kp TAB  &kp SPACE  &kp ESC  &kp A    &kp A    &kp A      &kp A      &kp A
+
+            >;
+
+        };
+    };
+};
