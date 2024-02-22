@@ -1,31 +1,79 @@
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        PrtSc {
+            bindings = <&kp PRINTSCREEN>;
+            key-positions = <8 9>;
+            layers = <0 2 1>;
+        };
+
+        Mute {
+            bindings = <&kp C_MUTE>;
+            key-positions = <39 38>;
+            layers = <0 1 2>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
-
-//  Colemak
-// |-------------------------------------------------------------------------------|
-// |   q   |   w   |   f   |   p   |   b   |   j   |   l   |   u   |   y   |  ; :  |
-// |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
-// | a-gui | r-alt |s-ctrl |t-shift|   g   |   m   |n-shift|e-ctrl | i-alt | o-gui |
-// |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
-// |   z   |   x   |   c   |   d   |   v   |   k   |   h   |  , <  |  . >  |  / ?  |
-// |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
-// |system | menu  |  tab  |spc-num|esc-sym|ent-fun|bsp-nav|  del  | vol-  | vol+  |
-// |-------------------------------------------------------------------------------|
-
+        colemak {
             bindings = <
-    &kp Q    &kp W    &kp F    &kp P      &kp B    &kp J    &kp L    &kp U      &kp Y      &kp SEMI
-    &kp A    &kp R    &kp S    &kp T      &kp G    &kp M    &kp N    &kp E      &kp I      &kp O
-    &kp Z    &kp X    &kp C    &kp D      &kp V    &kp K    &kp H    &kp COMMA  &kp DOT    &kp BSLH
-    &kp A    &kp A    &kp TAB  &kp SPACE  &kp ESC  &kp A    &kp A    &kp A      &kp A      &kp A
-
+&kp Q  &kp W  &kp F  &kp P  &kp B  &kp J  &kp L  &kp U  &kp Y  &kp SEMI  &mt LEFT_GUI A  &mt LEFT_ALT R  &mt RCTRL S  &mt LEFT_SHIFT T  &kp G  &kp M  &mt RIGHT_SHIFT N  &mt RCTRL E  &mt RIGHT_ALT I  &mt RIGHT_GUI O  &kp Z  &kp X  &kp C  &kp D  &kp V  &kp K  &kp H  &kp COMMA  &kp DOT  &kp FSLH  &mo 7  &kp K_APP  &kp TAB  &lt 3 SPACE  &lt 4 ESCAPE  &lt 5 ENTER  &lt 6 BACKSPACE  &kp DELETE  &kp C_VOL_DN  &kp C_VOL_UP
             >;
+        };
 
+        qwerty {
+            bindings = <
+&kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &mt LEFT_GUI A  &mt LEFT_ALT S  &mt LCTRL D  &mt LEFT_SHIFT F  &kp G  &kp H  &mt RIGHT_SHIFT J  &mt RCTRL K  &mt RIGHT_ALT L  &mt RIGHT_GUI SEMICOLON  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        GAME {
+            bindings = <
+&kp ESCAPE  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp TAB  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &kp L  &kp LSHFT  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA  &kp PERIOD  &kp LCTRL  &kp LALT  &mo 3  &kp SPACE  &trans  &trans  &trans  &to 0  &trans  &trans
+            >;
+        };
+
+        NUM {
+            bindings = <
+&kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp MINUS  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp EQUAL  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        SYM {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp GRAVE  &kp SQT  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp NON_US_BACKSLASH  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        FUN {
+            bindings = <
+&kp F1  &kp F2  &kp F3  &kp F4  &trans  &trans  &trans  &trans  &trans  &trans  &kp F5  &kp F6  &kp F7  &kp F8  &trans  &trans  &trans  &trans  &trans  &trans  &kp F9  &kp F10  &kp F11  &kp F12  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        NAV {
+            bindings = <
+&kp HOME  &kp END  &kp PAGE_UP  &kp PAGE_DOWN  &trans  &trans  &trans  &trans  &trans  &trans  &kp UP_ARROW  &kp DOWN  &kp LEFT  &kp RIGHT  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        SYS {
+            bindings = <
+&kp K_COFFEE  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp PAUSE_BREAK  &kp CAPSLOCK  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp INSERT  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &mo 8  &trans  &trans  &trans  &to 0  &to 1  &to 2  &kp C_BRI_DEC  &kp C_BRI_INC
+            >;
+        };
+
+        bluetooth {
+            bindings = <
+&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans  &trans  &trans  &trans  &trans  &bt BT_PRV  &bt BT_NXT  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &bt BT_CLR_ALL  &bt BT_CLR  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
         };
     };
 };
