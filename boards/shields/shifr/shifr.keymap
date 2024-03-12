@@ -30,8 +30,8 @@
     combos {
         compatible = "zmk,combos";
 
-        LockScreen {
-            bindings = <&kp C_PWR>;
+        Sleep {
+            bindings = <&kp C_SLEEP>;
             key-positions = <0 1>;
             layers = <COL QWE>;
         };
