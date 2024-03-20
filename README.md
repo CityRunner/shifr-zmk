@@ -3,8 +3,9 @@
 ZMK firmware for [Shifr Keyboard](https://github.com/CityRunner/shifr).
 
 ## Layout
-Default layout contain multiple functional layers.
-It also iIncludes homerow mods with '[tap-preferred](https://zmk.dev/docs/behaviors/hold-tap)' config:
+Default layout contains multiple functional layers.
+
+It also includes homerow mods with '[tap-preferred](https://zmk.dev/docs/behaviors/hold-tap)' config:
 - outputs the GUI/Alt/Control/Shift behavior when held
 - outputs the letter/symbol when tapped
 ### Combo
